@@ -27,8 +27,9 @@ class WavDataDual:
     def __len__(self):
         return len(self.data)
 
+filename = "Recorded_Data_1.wav"
 
-rate, audioData = wavfile.read("Recorded_Data_1.wav")
+rate, audioData = wavfile.read(filename)
 # rate, audioData = wavfile.read("StarWars60.wav")
 # rate, audioData = wavfile.read("WanShow_November_19_2021.wav")
 
@@ -108,4 +109,5 @@ total_std = np.std(peak_fs,axis=0)
 ax2.errorbar(t_ax,total_mean, fmt='.')
 w = 1/ total_std
 fig.suptitle('Electrical Network Frequency Analysis')
+plt.savefig("./images/" + filename[:-4] + ".png")
 plt.show()
